@@ -4,11 +4,11 @@
 
 using namespace std;
 
-
-
 int main()
 {
     vector<vector<int>> arr(6);
+    int sum = -63, sumTemp = 0;
+
     for (int i = 0; i < 6; i++) {
         arr[i].resize(6);
 
@@ -18,6 +18,24 @@ int main()
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+
+    for (int i = 0; i < 4; i++) {
+
+        for (int j = 0; j < 4; j++) {
+            //cout << arr[i][j] << " " << arr[i][j+1] << " " << arr[i][j+2] << endl;
+            //cout << "  " << arr[i+1][j+1] << endl;
+            //cout << arr[i+2][j] << " " << arr[i+2][j+1] << " " << arr[i+2][j+2] << endl;
+
+            sumTemp = arr[i][j] + arr[i][j + 1] + arr[i][j + 2] + arr[i + 1][j + 1] + arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+            //cout << "Sum = " << sumTemp << endl;
+
+            if (sum < sumTemp) {
+                sum = sumTemp;
+            }
+        }
+    }
+
+    cout << sum << endl;
 
     return 0;
 }
