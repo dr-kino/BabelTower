@@ -9,10 +9,19 @@ class AdvancedArithmetic {
 public:
     virtual int divisorSum(int n) = 0;
 };
+
 class Calculator : public AdvancedArithmetic {
 public:
     int divisorSum(int n) {
-        return 0;
+        int sum = 0;
+
+        for (int x = 1; x <= n; x++) {
+            if ((n % x) == 0) {
+                sum += x;
+                //cout << x << endl;        
+            }
+        }
+        return sum;
     }
 };
 
